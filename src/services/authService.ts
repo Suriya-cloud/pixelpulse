@@ -203,11 +203,7 @@ export const authService = {
     // Local fallback
     const stored = localStorage.getItem(LOCAL_AUTH_KEY);
     if (!stored) {
-      // Default to suriya_dev if none logged in yet for instant demo readiness
-      const users = getStoredUsers();
-      const defaultUser = users[0];
-      localStorage.setItem(LOCAL_AUTH_KEY, JSON.stringify(defaultUser));
-      return defaultUser;
+      return null;
     }
     try {
       return JSON.parse(stored);
